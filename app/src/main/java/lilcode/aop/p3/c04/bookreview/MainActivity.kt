@@ -18,12 +18,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: BookAdapter
+    private lateinit var bookRecyclerViewAdapter: BookAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        initBookCyclerView()
+        initBookRecyclerView()
         setContentView(binding.root)
 
         val retrofit = Retrofit.Builder()
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                             Log.d(M_TAG, book.toString())
                         }
 
-                        adapter.submitList(it.books) // 새 리스트로 갱신
+                        bookRecyclerViewAdapter.submitList(it.books) // 새 리스트로 갱신
                     }
                 }
 
@@ -64,11 +64,11 @@ class MainActivity : AppCompatActivity() {
             })
     }
 
-    fun initBookCyclerView(){
-        adapter = BookAdapter()
+    private fun initBookRecyclerView(){
+        bookRecyclerViewAdapter = BookAdapter()
 
         binding.bookRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.bookRecyclerView.adapter = adapter
+        binding.bookRecyclerView.adapter = bookRecyclerViewAdapter
     }
 
     companion object{
