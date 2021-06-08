@@ -59,3 +59,7 @@ http://book.interpark.com/blog/bookpinion/bookpinionOpenAPIInfo.rdo
 포스트맨을 사용하여 api 테스트 진행
 
 레트로핏 사용(https://square.github.io/retrofit/)
+
+# 리사이클러 뷰
+
+재활용 (근처의 데이터만 다시 할당)
