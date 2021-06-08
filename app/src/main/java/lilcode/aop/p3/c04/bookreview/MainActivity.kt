@@ -3,7 +3,10 @@ package lilcode.aop.p3.c04.bookreview
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import lilcode.aop.p3.c04.bookreview.adapter.BookAdapter
 import lilcode.aop.p3.c04.bookreview.api.BookService
+import lilcode.aop.p3.c04.bookreview.databinding.ActivityMainBinding
 import lilcode.aop.p3.c04.bookreview.model.BestSellerDto
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,9 +16,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: BookAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        initBookCyclerView()
+        setContentView(binding.root)
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://book.interpark.com/")
@@ -42,6 +51,8 @@ class MainActivity : AppCompatActivity() {
                         it.books.forEach { book ->
                             Log.d(M_TAG, book.toString())
                         }
+
+                        adapter.submitList(it.books) // 새 리스트로 갱신
                     }
                 }
 
@@ -51,6 +62,13 @@ class MainActivity : AppCompatActivity() {
                 }
 
             })
+    }
+
+    fun initBookCyclerView(){
+        adapter = BookAdapter()
+
+        binding.bookRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.bookRecyclerView.adapter = adapter
     }
 
     companion object{
