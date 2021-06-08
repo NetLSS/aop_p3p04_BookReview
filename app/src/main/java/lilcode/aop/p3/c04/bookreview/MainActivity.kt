@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val bookService: BookService = retrofit.create(BookService::class.java)
 
-        bookService.getBestSellerBooks("B37540CD55F6A52183F9AA6EACBC2767918F2070D1A3015C87F24AADD094279E")
+        bookService.getBestSellerBooks(M_API_KEY)
             .enqueue(object: Callback<BestSellerDto>{
                 // 성공.
                 override fun onResponse(
@@ -55,5 +55,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         private const val M_TAG = "MainActivity"
+        private const val M_API_KEY = "B37540CD55F6A52183F9AA6EACBC2767918F2070D1A3015C87F24AADD094279E"
     }
 }
