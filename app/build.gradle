@@ -57,4 +57,6 @@ dependencies {
 //    Simple XML: com.squareup.retrofit2:converter-simplexml
 //    JAXB: com.squareup.retrofit2:converter-jaxb
 //    Scalars (primitives, boxed, and String): com.squareup.retrofit2:converter-scalars
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
 }
