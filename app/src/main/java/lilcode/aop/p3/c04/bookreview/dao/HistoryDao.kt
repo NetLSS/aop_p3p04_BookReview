@@ -16,6 +16,6 @@ interface HistoryDao {
     fun insertHistory(history: History)
 
     // x 눌렀을 때 키워드 지워주
-    @Query("DELETE FROM history WHERE keyword == :keyword")
+    @Query("DELETE FROM history WHERE keyword = :keyword")
     fun delete(keyword: String)
 }
