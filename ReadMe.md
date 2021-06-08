@@ -45,3 +45,17 @@
 Local DB 를 이용하여 검색 기록을 저장하고 삭제할 수 있음.
 
 Local DB 를 이용하여 개인 리뷰를 저장할 수 있음.
+
+# open API
+
+네이버 책은 항목에 베스트 셀러가 없어서 인터파크 사용하였음
+
+공공 데이터 포털에서도 오픈API를 제공하고 있음.
+
+인터파크 인증키 (B37540CD55F6A52183F9AA6EACBC2767918F2070D1A3015C87F24AADD094279E) (삭제 예정)
+
+http://book.interpark.com/blog/bookpinion/bookpinionOpenAPIInfo.rdo
+
+포스트맨을 사용하여 api 테스트 진행
+
+레트로핏 사용(https://square.github.io/retrofit/)
