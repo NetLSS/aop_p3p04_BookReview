@@ -52,7 +52,7 @@
             <EditText
                 android:id="@+id/reviewEditText"
                 android:layout_width="0dp"
-                android:layout_height="300dp"
+                android:layout_height="250dp"
                 app:layout_constraintBottom_toTopOf="@id/saveButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +61,8 @@
             <Button
                 android:layout_width="0dp"
                 android:id="@+id/saveButton"
+                android:text="저장하기"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
