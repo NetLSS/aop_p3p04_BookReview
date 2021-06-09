@@ -19,6 +19,10 @@ class HistoryAdapter(val historyDeleteClickListener: (String) -> Unit) :
             binding.historyKeywordDeleteButton.setOnClickListener {
                 historyDeleteClickListener(historyModel.keyword.orEmpty())
             }
+
+//            binding.root.setOnClickListener {
+//
+//            }
         }
 
     }
