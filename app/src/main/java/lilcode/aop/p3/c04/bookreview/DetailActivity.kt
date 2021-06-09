@@ -1,9 +1,7 @@
 package lilcode.aop.p3.c04.bookreview
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import com.bumptech.glide.Glide
 import lilcode.aop.p3.c04.bookreview.databinding.ActivityDetailBinding
 import lilcode.aop.p3.c04.bookreview.model.Book
@@ -14,9 +12,8 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
 
     private lateinit var db: AppDatabase
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -32,9 +29,11 @@ class DetailActivity : AppCompatActivity() {
             .into(binding.coverImageView)
 
         Thread{
-            val review = db.reviewDao().getOneReview(model?.id?.toInt() ?: 0)
-            runOnUiThread{
-                binding.reviewEditText.setText(review?.review.orEmpty())
+            val review = db.reviewDao().getOneReview(model?.id?.toInt()?:0)
+            review?.let {
+                runOnUiThread{
+                    binding.reviewEditText.setText(it.review)
+                }
             }
         }.start()
 
@@ -48,6 +47,5 @@ class DetailActivity : AppCompatActivity() {
                 )
             }.start()
         }
-
     }
 }
