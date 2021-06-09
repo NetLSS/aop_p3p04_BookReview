@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import lilcode.aop.p3.c04.bookreview.MainActivity
-import lilcode.aop.p3.c04.bookreview.databinding.ActivityMainBinding
 import lilcode.aop.p3.c04.bookreview.databinding.ItemHistoryBinding
 import lilcode.aop.p3.c04.bookreview.model.History
 
@@ -26,7 +25,7 @@ class HistoryAdapter(val historyDeleteClickListener: (String) -> Unit, val mainA
             }
 
             binding.root.setOnClickListener {
-                mainActivity.search(historyModel.keyword.toString())
+                mainActivity.bookServiceSearchBook(historyModel.keyword.toString())
             }
         }
 

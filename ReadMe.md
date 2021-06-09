@@ -58,8 +58,14 @@ http://book.interpark.com/blog/bookpinion/bookpinionOpenAPIInfo.rdo
 
 포스트맨을 사용하여 api 테스트 진행
 
-레트로핏 사용(https://square.github.io/retrofit/)
+레트로핏 사용(https://square.github.io/retrofit/)함
+
+gson tkdyd
 
 # 리사이클러 뷰
 
 재활용 (근처의 데이터만 다시 할당)
+
+# 뷰 바인딩 사용
+
+레이아웃 파일과 유사한 이름으로 코드에서 레이아웃 파일 속성에 접근이 용이하도록
