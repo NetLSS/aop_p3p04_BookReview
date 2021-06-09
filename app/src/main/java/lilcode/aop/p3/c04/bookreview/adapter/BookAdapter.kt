@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import lilcode.aop.p3.c04.bookreview.databinding.ItemBookBinding
 import lilcode.aop.p3.c04.bookreview.model.Book
 
-class BookAdapter : ListAdapter<Book, BookAdapter.BookItemViewHolder>(diffUtil) {
+class BookAdapter(private val itemClickedListener: (Book)->Unit) : ListAdapter<Book, BookAdapter.BookItemViewHolder>(diffUtil) {
 
     // 뷰 바인딩 (item_book.xml)
     inner class BookItemViewHolder(private val binding: ItemBookBinding): RecyclerView.ViewHolder(binding.root){
@@ -17,6 +17,10 @@ class BookAdapter : ListAdapter<Book, BookAdapter.BookItemViewHolder>(diffUtil) 
         fun bind(bookModel: Book){
             binding.titleTextView.text = bookModel.title
             binding.descriptionTextView.text = bookModel.description
+
+            binding.root.setOnClickListener {
+                itemClickedListener(bookModel)
+            }
 
             // Glide 사용 하기
             Glide

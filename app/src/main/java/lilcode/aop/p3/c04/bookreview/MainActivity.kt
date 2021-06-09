@@ -1,6 +1,7 @@
 package lilcode.aop.p3.c04.bookreview
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         initBookRecyclerView()
         initHistoryRecyclerView()
+        initSearchEditText()
 
         db = Room.databaseBuilder(
             applicationContext,
@@ -87,7 +89,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initBookRecyclerView() {
-        bookRecyclerViewAdapter = BookAdapter()
+        bookRecyclerViewAdapter = BookAdapter(itemClickedListener = {
+            val intent = Intent(this, DetailActivity::class.java)
+
+            // 직렬화 해서 넘길 것.
+            intent.putExtra("bookModel", it)
+            startActivity(intent)
+        })
 
         binding.bookRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.bookRecyclerView.adapter = bookRecyclerViewAdapter
