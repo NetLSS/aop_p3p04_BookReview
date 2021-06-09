@@ -5,11 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import lilcode.aop.p3.c04.bookreview.MainActivity
+import lilcode.aop.p3.c04.bookreview.databinding.ActivityMainBinding
 import lilcode.aop.p3.c04.bookreview.databinding.ItemHistoryBinding
 import lilcode.aop.p3.c04.bookreview.model.History
 
-class HistoryAdapter(val historyDeleteClickListener: (String) -> Unit) :
+
+class HistoryAdapter(val historyDeleteClickListener: (String) -> Unit, val mainActivity: MainActivity) :
     ListAdapter<History, HistoryAdapter.HistoryViewHolder>(diffUtil) {
+
+
 
     inner class HistoryViewHolder(private val binding: ItemHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -20,9 +25,9 @@ class HistoryAdapter(val historyDeleteClickListener: (String) -> Unit) :
                 historyDeleteClickListener(historyModel.keyword.orEmpty())
             }
 
-//            binding.root.setOnClickListener {
-//
-//            }
+            binding.root.setOnClickListener {
+                mainActivity.search(historyModel.keyword.toString())
+            }
         }
 
     }

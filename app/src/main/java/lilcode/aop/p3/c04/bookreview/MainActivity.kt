@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
     private fun initHistoryRecyclerView() {
         historyAdapter = HistoryAdapter(historyDeleteClickListener = {
             deleteSearchKeyword(it)
-        })
+        }, this)
 
         binding.historyRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.historyRecyclerView.adapter = historyAdapter
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun search(keyword: String) {
+    public fun search(keyword: String) {
         bookService.getBooksByName(getString(R.string.interparkAPIKey), keyword)
             .enqueue(object : Callback<SearchBookDto> {
                 // 성공.
