@@ -25,7 +25,7 @@ class DetailActivity : AppCompatActivity() {
         binding.descriptionTextView.text = model?.description.orEmpty()
 
         Glide.with(binding.coverImageView.context)
-            .load(model?.coverSmallUrl.orEmpty())
+            .load(model?.coverLargeUrl.orEmpty())
             .into(binding.coverImageView)
 
         Thread{
