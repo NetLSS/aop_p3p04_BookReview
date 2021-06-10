@@ -1,5 +1,7 @@
 # aop-part3-chapter04 -  도서 리뷰 앱
 
+보다 자세한 내용을 저의 [블로그 포스터](https://whyprogrammer.tistory.com/591)에서 확인할 수 있습니다.
+
 # 목차
 
 1. 인트로 (완성앱 & 구현 기능 소개)
@@ -17,11 +19,11 @@
 
 # 결과화면
 
-![1](./screenshot/1.png)
+![1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKXDk5%2Fbtq6Sk0vYcX%2FEwI21ldFeKDPN9r410Dl6k%2Fimg.png)
 
 
 
-![2](./screenshot/2.png)
+![2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdmN3gO%2Fbtq6RNhmfW0%2FsWb10sKlAdXlIrhO4YxNnk%2Fimg.png)
 
 
 
